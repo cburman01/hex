@@ -66,7 +66,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
       setup_auth("user2", "hunter42")
 
       send(self(), {:mix_shell_input, :yes?, true})
@@ -75,7 +74,7 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
       message =
         "Package published to http://localhost:4043/packages/release_a/0.0.1 " <>
-          "(47008d78c3cc99ba7007179ff9c158186b576f46e19b6348fcd2f33cdce4818d)"
+          "(a7ba7cb9e060d43b32ec48df731522c3ae8bd4bbf0b00db0b8eca106da273b63)"
 
       assert_received {:mix_shell, :info, [^message]}
 
@@ -100,7 +99,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
       setup_auth("user2", "hunter42")
       # note that we don't need the yes? input here
       send(self(), {:mix_shell_input, :prompt, "hunter42"})
@@ -190,7 +188,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
       setup_auth("user2", "hunter42")
 
       send(self(), {:mix_shell_input, :prompt, "hunter42"})
@@ -220,7 +217,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
       setup_auth("user", "hunter42")
 
       send(self(), {:mix_shell_input, :prompt, "hunter42"})
@@ -240,7 +236,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
       setup_auth("user", "hunter42")
 
       send(self(), {:mix_shell_input, :prompt, "hunter42"})
@@ -259,7 +254,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
       setup_auth("user2", "hunter42")
 
       send(self(), {:mix_shell_input, :yes?, true})
@@ -276,8 +270,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
-
       send(self(), {:mix_shell_input, :prompt, "user2"})
       send(self(), {:mix_shell_input, :prompt, "hunter42"})
       Mix.Tasks.Hex.User.run(["key", "generate"])
@@ -300,7 +292,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
       setup_auth("user", "hunter42")
 
       Mix.Tasks.Deps.Get.run([])
@@ -381,7 +372,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
       bypass_repo("myorg")
       setup_auth("user", "hunter42")
 
@@ -403,7 +393,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
       setup_auth("user", "hunter42")
 
       send(self(), {:mix_shell_input, :yes?, true})
@@ -419,7 +408,6 @@ defmodule Mix.Tasks.Hex.PublishTest do
 
     in_tmp(fn ->
       Hex.State.put(:home, tmp_path())
-      File.write!("mix.exs", "mix.exs")
       bypass_repo("myorg2")
       setup_auth("user", "hunter42")
 
